@@ -1,0 +1,17 @@
+{
+    "name": "Bookmarks",
+    "description": "the better bookmarks bar >:)",
+    "version": "1.0",
+    "manifest_version": 3,
+
+    "action": {
+        "default_icon": "icons/clown128.png",
+        "default_popup": "popup/popup.html"
+    },
+    "icons": {
+        "16": "icons/clown16.png",
+        "32": "icons/clown32.png",
+        "48": "icons/clown48.png",
+        "128": "icons/clown128.png"
+    }
+}
