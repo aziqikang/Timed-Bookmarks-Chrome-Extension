@@ -13,5 +13,8 @@
         "32": "icons/clown32.png",
         "48": "icons/clown48.png",
         "128": "icons/clown128.png"
-    }
+    },
+    "permissions": [
+        "tabs"
+    ]
 }

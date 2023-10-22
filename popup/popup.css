@@ -1,0 +1,43 @@
+body {
+    width: 320px;
+}
+  
+ul {
+    list-style-type: none;
+    padding-inline-start: 0;
+    margin: 16px 0;
+}
+li {
+    padding: 0.25rem;
+}
+li:nth-child(odd) {
+    background: #b7c8c7;
+}
+li:nth-child(even) {
+    background: #f9f5e3;
+}
+
+h3,p {
+    margin: 0;
+}
+
+#buttons {
+    text-align: center;
+    background-color: #f9f5e3;
+}
+.button {
+    height: auto;
+    width: 200px;
+    display: block;
+    background-color: #bbbe64;
+    border: none;
+    border-radius: 12px;
+    margin: 10px;
+
+    color: #3a2e39;
+    padding: 15px 15px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 800;
+}

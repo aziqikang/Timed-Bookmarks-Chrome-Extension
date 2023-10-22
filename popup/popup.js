@@ -1,1 +1,9 @@
-console.log("this is a popup!")
+chrome.tabs.query({
+    active: true,
+    currentWindow: true
+}, function(tabs) {
+    var tabURL = tabs[0].url;
+    console.log(tabURL);
+});
+
+function addBookmark() {}

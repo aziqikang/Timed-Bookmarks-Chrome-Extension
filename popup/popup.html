@@ -3,8 +3,23 @@
 <head>
     <title>Bookmarks Viewer</title>
     <script src="popup.js" type="module"></script> 
+    <link rel="stylesheet" href="popup.css" />
 </head>
 <body>
-    <h2>Hello Extensions</h2>
+    <template>
+        <li><a>
+            <h3 class="tabname">Bookmark Name</h3>
+            <p class="pathname">Bookmark Pathname</p>
+        </a></li>
+    </template>
+
+    <h1>My Bookmarks</h1>
+    <div id="buttons">
+        <button class="button">Add Bookmark</button>
+        <button class="button">Remove Bookmark</button>
+        <button class="button">View Bookmarks</button>
+    </div>
+    <ul></ul>
+
 </body>
 </html>
