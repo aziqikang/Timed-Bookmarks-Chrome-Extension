@@ -1,6 +1,6 @@
 {
-    "name": "Bookmarks",
-    "description": "the better bookmarks bar >:)",
+    "name": "Cuckoo",
+    "description": "the notifications-based bookmarks extension",
     "version": "1.0",
     "manifest_version": 3,
 
