@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="popup.css" />
 </head>
 <body>
-    <template>
+    <template id="li_template">
         <li><a>
             <h3 class="tabname">Bookmark Name</h3>
             <p class="pathname">Bookmark Pathname</p>
@@ -15,7 +15,7 @@
 
     <h1>My Bookmarks</h1>
     <div id="buttons">
-        <button class="button">Add Bookmark</button>
+        <button class="button" id="addBookmark">Add Bookmark</button>
         <button class="button">Remove Bookmark</button>
         <button class="button">View Bookmarks</button>
     </div>
