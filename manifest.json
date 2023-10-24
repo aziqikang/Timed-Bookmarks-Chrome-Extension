@@ -15,6 +15,7 @@
         "128": "icons/clown128.png"
     },
     "permissions": [
-        "tabs"
+        "tabs",
+        "storage"
     ]
 }

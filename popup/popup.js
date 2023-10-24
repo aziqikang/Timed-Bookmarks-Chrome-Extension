@@ -1,26 +1,43 @@
-// document.getElementById("addBookmark").addEventListener("click", addTab());
+document.addEventListener('DOMContentLoaded', async () => {
 
-const tabs = await chrome.tabs.query({
-    active: true,
-    lastFocusedWindow: true
+    const cuckoo = new Cuckoo();
+    const tab = await cuckoo.getActiveTab();
+
+    // Display history.
+    await displayPages();
+
+    // add tab
+    const addCurrentTabBtn = document.getElementById("addCurrentTab");
+    addCurrentTabBtn.onclick = async () => {
+        await PageService.savePage(tab.title, tab.url);
+        await displayPages();
+    };
+
+    // remove tab
+    const removeCurrentTabBtn = document.getElementById("removeCurrentTab");
+    removeCurrentTabBtn.onclick = async () => {
+        await PageService.removePage(tab.title, tab.url);
+        await displayPages();
+    };
 });
 
-const template = document.getElementById("li_template");
-const elements = new Set();
-for (const tab of tabs) {
-  const element = template.content.firstElementChild.cloneNode(true);
-
-  const title = tab.title.split("-")[0].trim();
-  const pathname = new URL(tab.url).pathname.slice("/docs".length);
-
-  element.querySelector(".tabname").textContent = title;
-  element.querySelector(".pathname").textContent = pathname;
-  element.querySelector("a").addEventListener("click", async () => {
-    // need to focus window as well as the active tab
-    await chrome.tabs.update(tab.id, { active: true });
-    await chrome.windows.update(tab.windowId, { focused: true });
-  });
-
-  elements.add(element);
+const displayPages = async () => {
+    const savedTabs = await PageService.getPages();
+    const bookmarksList = document.getElementById('bookmarksList');
+    bookmarksList.innerHTML = '';
+    
+    savedTabs.forEach(page => {
+        const pageItem = document.createElement('li');
+        bookmarksList.appendChild(pageItem);
+        
+        const pageLink = document.createElement('a');
+        pageLink.title = page.title;
+        pageLink.innerHTML = page.title;
+        pageLink.href = page.url;
+        pageLink.onclick = (event) => {
+            event.preventDefault();
+            chrome.tabs.create({ url: event.target.href, active: false });
+        };
+        pageItem.appendChild(pageLink);
+    });
 }
-document.querySelector("ul").append(...elements);
