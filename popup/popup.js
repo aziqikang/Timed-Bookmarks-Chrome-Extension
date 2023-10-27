@@ -27,8 +27,11 @@ const displayPages = async () => {
     bookmarksList.innerHTML = '';
     
     savedTabs.forEach(page => {
-        const pageItem = document.createElement('li');
-        bookmarksList.appendChild(pageItem);
+        const pageListItem = document.createElement('li');
+        bookmarksList.appendChild(pageListItem);
+
+        const pageItem = document.createElement('div');
+        pageListItem.append(pageItem);
         
         const pageLink = document.createElement('a');
         pageLink.title = page.title;
@@ -39,5 +42,10 @@ const displayPages = async () => {
             chrome.tabs.create({ url: event.target.href, active: false });
         };
         pageItem.appendChild(pageLink);
+
+        const pageRemoveButton = document.createElement('button');
+        pageRemoveButton.innerHTML = "remove";
+        pageItem.append(document.createElement('br'));
+        pageItem.append(pageRemoveButton); 
     });
 }

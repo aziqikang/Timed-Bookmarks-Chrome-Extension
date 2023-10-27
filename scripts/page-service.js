@@ -4,16 +4,13 @@ const PAGES_KEY = 'pages';
 /** Shared logic */
 class PageService {
 
-    /**
-     * 
-     * @returns {Promise<Array>}
-     */
+    
     static getPages = () => {
         const promise = toPromise((resolve, reject) => {
             chrome.storage.local.get([PAGES_KEY], (result) => {
-                if (chrome.runtime.lastError)
+                if (chrome.runtime.lastError) {
                     reject(chrome.runtime.lastError);
-
+                }
                 const researches = result.pages ?? [];
                 resolve(researches);
             });
