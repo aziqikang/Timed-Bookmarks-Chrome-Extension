@@ -1,5 +1,6 @@
 body {
     width: 320px;
+    font-family: Arial, sans-serif;
 }
   
 ul {
@@ -11,10 +12,10 @@ li {
     padding: 0.25rem;
 }
 li:nth-child(odd) {
-    background: #b7c8c7;
+    background: #e5e5e5;
 }
 li:nth-child(even) {
-    background: #f9f5e3;
+    background: #ffffff;
 }
 
 h3,p {

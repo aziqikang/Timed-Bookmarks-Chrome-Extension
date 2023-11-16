@@ -37,11 +37,12 @@ class PageService {
 
     static removePage = async (title, url) => {
         const pages = await this.getPages();
-        const updatedPages = [...pages, { title, url }];
+        const pageIndex = pages.indexOf({ title, url });    // index of given page
+        const updatedPages = pages.splice(0, pageIndex).concat(pages.splice(pageIndex + 1));
 
         const promise = toPromise((resolve, reject) => {
 
-            chrome.storage.local.remove([PAGES_KEY], () => {
+            chrome.storage.local.set({[PAGES_KEY] : updatedPages}, () => {
                 if (chrome.runtime.lastError) {
                     reject(chrome.runtime.lastError);
                 }

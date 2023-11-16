@@ -14,9 +14,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     };
 
     // remove tab
-    const removeCurrentTabBtn = document.getElementById("removeCurrentTab");
-    removeCurrentTabBtn.onclick = async () => {
-        await PageService.removePage(tab.title, tab.url);
+    const clearAllButton = document.getElementById("clearAll");
+    clearAllButton.onclick = async () => {
+        await PageService.clearPages(tab.title, tab.url);
         await displayPages();
     };
 });
@@ -45,6 +45,10 @@ const displayPages = async () => {
 
         const pageRemoveButton = document.createElement('button');
         pageRemoveButton.innerHTML = "remove";
+        pageRemoveButton.onclick = async () => {
+            await PageService.removePage(page.title, page.url);
+            await displayPages();
+        };
         pageItem.append(document.createElement('br'));
         pageItem.append(pageRemoveButton); 
     });
