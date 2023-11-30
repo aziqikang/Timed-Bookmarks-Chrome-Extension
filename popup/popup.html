@@ -15,12 +15,33 @@
         </a></li>
     </template>
 
-    <h1>Bookmarks</h1>
+    <h1>Bookmarked Reminders</h1>
+    <div id = "reminder">
+        Reminder Time:
+        <input type="datetime-local" id="alarm"><br><br>
+        <label for="repeatTime">Repeat: </label>
+        <select name="repeatTime" id="repeatTime">
+            <option value="none">None</option>
+            <option value="oneWeek">Every Week</option>
+            <option value="twoWeeks">Every Two Weeks</option>
+            <option value="oneDay">Every Day</option>
+            <option value="twoDays">Every Two Days</option>
+        </select>
+        <br><br>
+        Message:
+        <input type="text" id="message"><br><br>
+    </div>
     <div id="buttons">
         <button class="button" id="addCurrentTab">Add Bookmark</button>
+    </div>
+
+    <div id = "bookmarks">
+        <ul id = "bookmarksList"></ul>
+    </div>
+    
+    <div id="buttons">
         <button class="button" id="clearAll">Clear All</button>
     </div>
-    <ul id = "bookmarksList"></ul>
 
 </body>
 </html>
